@@ -1,0 +1,291 @@
+/* =========================================
+   Farbpalette & Schriftarten
+========================================= */
+:root {
+  --burgundy: #5a0a0a;
+  --burgundy-dark: #3b0707;
+  --cream: #f6f1eb;
+  --dark: #1a1a1a;
+  --text-light: #ffffff;
+  --accent: #c5a47e;
+  --transition: all 0.3s ease;
+}
+
+/* =========================================
+   Grundlayout
+========================================= */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--cream);
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+/* =========================================
+   Navigation
+========================================= */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--burgundy);
+  color: var(--text-light);
+  padding: 1rem 2rem;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+/* =========================================
+   Hero Section
+========================================= */
+.hero {
+  background: linear-gradient(rgba(26,26,26,0.6), rgba(26,26,26,0.7)),
+              url('hero.jpg') center/cover no-repeat;
+  color: var(--text-light);
+  text-align: center;
+  padding: 9rem 2rem 7rem;
+}
+
+.hero .title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.hero .intro-text {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  color: var(--cream);
+}
+
+/* =========================================
+   Section Titel & Text
+========================================= */
+section {
+  padding: 6rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  color: var(--burgundy);
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.section-text {
+  text-align: center;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--dark);
+}
+
+/* =========================================
+   Timeline (überlappender Look)
+========================================= */
+.timeline {
+  position: relative;
+  margin: 100px auto;
+  padding: 40px 0;
+  max-width: 1100px;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  background-color: var(--burgundy);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+  opacity: 0.4;
+}
+
+/* Positionierung der Items */
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 2rem 3rem;
+  box-sizing: border-box;
+}
+
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+  transform: translateX(-40px);
+}
+
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+  transform: translateX(40px);
+}
+
+/* === Boxen === */
+.timeline-item .content {
+  background-color: var(--text-light);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  border: 2px solid var(--burgundy);
+  display: inline-block;
+  max-width: 420px;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-item.left .content {
+  margin-left: auto;
+}
+
+.timeline-item.right .content {
+  margin-right: auto;
+}
+
+.timeline-item .content:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+/* === Titel & Untertitel === */
+.timeline-item .content h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--burgundy);
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  border-bottom: 2px solid var(--burgundy);
+  padding-bottom: 0.5rem;
+}
+
+/* === Medien === */
+.timeline-item img,
+.timeline-item video,
+.timeline-item iframe {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  margin: 1rem 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* === Technologie Tags === */
+.tech-highlight {
+  display: inline-block;
+  background-color: var(--burgundy);
+  color: var(--text-light);
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 16px;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+
+
+/* =========================================
+   Kontaktbereich
+========================================= */
+.contact-section {
+  background-color: var(--burgundy);
+  color: var(--text-light);
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+.contact-section .section-title {
+  color: var(--accent);
+}
+
+.contact-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  background-color: var(--accent);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.contact-btn:hover {
+  background-color: var(--cream);
+  color: var(--burgundy);
+}
+
+/* =========================================
+   Responsive Design
+========================================= */
+@media(max-width: 900px) {
+  .timeline::after {
+    left: 25px;
+  }
+
+  .timeline-item,
+  .timeline-item.left,
+  .timeline-item.right {
+    width: 100%;
+    text-align: center;
+    transform: none;
+    left: 0;
+    padding: 1rem;
+  }
+
+  .timeline-item .content {
+    margin: 0 auto;
+    max-width: 90%;
+  }
+
+  .timeline-item::before {
+    left: 15px;
+  }
+
+  .hero .title {
+    font-size: 2.2rem;
+  }
+}
