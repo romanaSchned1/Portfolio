@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 
 export default function Navigation() {
   const [activeSection, setActiveSection] = useState('about')
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   useEffect(() => {
     const sections = ['about', 'timeline', 'work', 'contact']
@@ -62,15 +63,34 @@ export default function Navigation() {
     }
   }, [])
 
+  const handleLinkClick = () => {
+    setIsMenuOpen(false)
+  }
+
   return (
     <nav className="site-nav">
-      <div className="nav-container">
+      <div className={`nav-container ${isMenuOpen ? 'menu-open' : ''}`}>
         <h1 className="brand">Romana Schned</h1>
-        <ul className="nav-links">
-          <li><a href="#about" className={activeSection === 'about' ? 'active' : ''}>About</a></li>
-          <li><a href="#timeline" className={activeSection === 'timeline' ? 'active' : ''}>Projects</a></li>
-          <li><a href="#work" className={activeSection === 'work' ? 'active' : ''}>Photo Collage</a></li>
-          <li><a href="#contact" className={activeSection === 'contact' ? 'active' : ''}>Contact</a></li>
+        <button 
+          className="menu-toggle"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        {isMenuOpen && (
+          <div 
+            className="menu-overlay"
+            onClick={() => setIsMenuOpen(false)}
+          />
+        )}
+        <ul className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
+          <li><a href="#about" className={activeSection === 'about' ? 'active' : ''} onClick={handleLinkClick}>About</a></li>
+          <li><a href="#timeline" className={activeSection === 'timeline' ? 'active' : ''} onClick={handleLinkClick}>Projects</a></li>
+          <li><a href="#work" className={activeSection === 'work' ? 'active' : ''} onClick={handleLinkClick}>Photo Collage</a></li>
+          <li><a href="#contact" className={activeSection === 'contact' ? 'active' : ''} onClick={handleLinkClick}>Contact</a></li>
         </ul>
       </div>
     </nav>
