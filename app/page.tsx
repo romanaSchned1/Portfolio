@@ -10,7 +10,7 @@ import Contact from '@/components/Contact'
 export default function Home() {
   useEffect(() => {
     // Smooth scrolling for navigation
-    const handleNavClick = (e: MouseEvent) => {
+    const handleNavClick = (e: Event) => {
       const target = e.target as HTMLAnchorElement
       if (target.hash) {
         e.preventDefault()
@@ -26,12 +26,12 @@ export default function Home() {
 
     const navLinks = document.querySelectorAll('.nav-links a')
     navLinks.forEach(link => {
-      link.addEventListener('click', handleNavClick)
+      (link as HTMLElement).addEventListener('click', handleNavClick)
     })
 
     return () => {
       navLinks.forEach(link => {
-        link.removeEventListener('click', handleNavClick)
+        (link as HTMLElement).removeEventListener('click', handleNavClick)
       })
     }
   }, [])
