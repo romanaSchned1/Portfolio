@@ -12,7 +12,7 @@ export default function Work() {
     "/pics/bildercollage/IMG_1406.jpeg",
     "/pics/bildercollage/IMG_0332.JPEG",
     "/pics/bildercollage/IMG_7326.jpeg",
-    "/pics/bildercollage/IMG_9637.jpeg",
+    "/pics/bildercollage/IMG_9637.JPEG",
     "/pics/bildercollage/IMG_1395.jpeg",
     "/pics/bildercollage/IMG_2261.jpeg",
     "/pics/bildercollage/DSC_0293.jpeg",
