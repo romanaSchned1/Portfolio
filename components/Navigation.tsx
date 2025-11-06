@@ -1,13 +1,76 @@
+'use client'
+
+import { useEffect, useState } from 'react'
+
 export default function Navigation() {
+  const [activeSection, setActiveSection] = useState('about')
+
+  useEffect(() => {
+    const sections = ['about', 'timeline', 'work', 'contact']
+    
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 150 // Offset for fixed nav
+      const windowHeight = window.innerHeight
+      const documentHeight = document.documentElement.scrollHeight
+      
+      // Check if we're near the bottom of the page (for contact section)
+      const isNearBottom = scrollPosition + windowHeight >= documentHeight - 100
+      
+      if (isNearBottom) {
+        const contactSection = document.getElementById('contact')
+        if (contactSection) {
+          setActiveSection('contact')
+          return
+        }
+      }
+      
+      // Otherwise, check sections from bottom to top
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i])
+        if (section) {
+          const sectionTop = section.offsetTop
+          const sectionHeight = section.offsetHeight
+          // Check if section is in viewport or we've scrolled past its start
+          if (scrollPosition >= sectionTop - 100) {
+            setActiveSection(sections[i])
+            break
+          }
+        }
+      }
+    }
+
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1)
+      if (sections.includes(hash)) {
+        setActiveSection(hash)
+        // Also trigger scroll handler after a short delay to ensure correct state
+        setTimeout(handleScroll, 100)
+      }
+    }
+
+    // Check initial position and hash
+    handleScroll()
+    handleHashChange()
+    
+    const scrollHandler = handleScroll
+    window.addEventListener('scroll', scrollHandler, { passive: true })
+    window.addEventListener('hashchange', handleHashChange)
+    
+    return () => {
+      window.removeEventListener('scroll', scrollHandler)
+      window.removeEventListener('hashchange', handleHashChange)
+    }
+  }, [])
+
   return (
     <nav className="site-nav">
       <div className="nav-container">
         <h1 className="brand">Romana Schned</h1>
         <ul className="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#timeline">Projects</a></li>
-          <li><a href="#work">Photo Collage</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#about" className={activeSection === 'about' ? 'active' : ''}>About</a></li>
+          <li><a href="#timeline" className={activeSection === 'timeline' ? 'active' : ''}>Projects</a></li>
+          <li><a href="#work" className={activeSection === 'work' ? 'active' : ''}>Photo Collage</a></li>
+          <li><a href="#contact" className={activeSection === 'contact' ? 'active' : ''}>Contact</a></li>
         </ul>
       </div>
     </nav>
