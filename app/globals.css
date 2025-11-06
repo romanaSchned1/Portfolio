@@ -237,7 +237,7 @@ section {
   width: 50%;
   padding: 2rem 2rem;
   box-sizing: border-box;
-  margin-bottom: 3rem;
+  margin-bottom: -5rem;
 }
 
 .timeline-item::before {
@@ -672,7 +672,7 @@ section {
     left: 0;
     padding: 1.5rem 1rem;
     padding-left: 3rem;
-    margin-bottom: 2rem;
+    margin-bottom: -3rem;
   }
 
   .timeline-item::before {
@@ -827,7 +827,7 @@ section {
   .timeline-item.left,
   .timeline-item.right {
     padding-left: 2.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: -3rem;
   }
 
   .timeline-item::before {
