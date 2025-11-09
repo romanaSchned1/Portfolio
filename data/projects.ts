@@ -35,23 +35,23 @@ export const projects = [
     pic: "/pics/3D Portfolio/3DGame.png",
     technology: ["Unity ", "C#"]
   },
-  {
-    title: "Cowboy Rigging",
-    description: "A 3D character rigging project showcasing the technical setup and animation capabilities of a cowboy character model.",
-    pic: "/pics/3D Portfolio/cow_boy_rigging_schned.mp4",
-    technology: ["Cinema4D ", "Character Rigging ", "Lighting ", "Rendering"]
-  },
-  {
-    title: "Tiger Animation",
-    description: "A dynamic 3D animation featuring a tiger, demonstrating character animation and movement techniques.",
-    pic: "/pics/3D Portfolio/tiger.mp4",
-    technology: ["Cinema4D ", "Character Animation ", "Rigging ", "Rendering ", "Scene Building"]
-  },
-  {
-    title: "Monkey Light",
-    description: "A 3D lighting study featuring a monkey character, exploring different lighting techniques and atmospheric rendering.",
-    pic: "/pics/3D Portfolio/Monkey_light.png",
-    technology: ["Cinema4D ", "Lighting ", "Redshift ", "Rendering"]
-  }
+  // {
+  //   title: "Cowboy Rigging",
+  //   description: "A 3D character rigging project showcasing the technical setup and animation capabilities of a cowboy character model.",
+  //   pic: "/pics/3D Portfolio/cow_boy_rigging_schned.mp4",
+  //   technology: ["Cinema4D ", "Character Rigging ", "Lighting ", "Rendering"]
+  // },
+  // {
+  //   title: "Tiger Animation",
+  //   description: "A dynamic 3D animation featuring a tiger, demonstrating character animation and movement techniques.",
+  //   pic: "/pics/3D Portfolio/tiger.mp4",
+  //   technology: ["Cinema4D ", "Character Animation ", "Rigging ", "Rendering ", "Scene Building"]
+  // },
+  // {
+  //   title: "Monkey Light",
+  //   description: "A 3D lighting study featuring a monkey character, exploring different lighting techniques and atmospheric rendering.",
+  //   pic: "/pics/3D Portfolio/Monkey_light.png",
+  //   technology: ["Cinema4D ", "Lighting ", "Redshift ", "Rendering"]
+  // }
 ]
 
